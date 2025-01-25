@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_lms/constants/app_constant.dart';
+import 'package:flutter_lms/shared/widgets/text_input.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -49,19 +51,44 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget _buildForm(BuildContext buildContext) {
-    return const Column(
-      spacing: 10,
+    return Column(
+      spacing: 16,
       children: [
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Username or Email Address',
-            border: OutlineInputBorder(),
+        const TextInput(
+          labelText: 'Username or Email Address',
+          hintText: "Your username or email address...",
+        ),
+        const TextInput(
+          labelText: 'Password',
+          hintText: "Your password...",
+          leadingLabel: Text(
+            'Forgot password?',
+            style: TextStyle(
+              color: Colors.blue,
+            ),
           ),
         ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Password',
-            border: OutlineInputBorder(),
+        ElevatedButton(
+          style: ButtonStyle(
+            minimumSize: WidgetStateProperty.all(
+              const Size(double.infinity, 50),
+            ),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            backgroundColor: WidgetStateProperty.all(
+              Colors.blue,
+            ),
+          ),
+          onPressed: () {},
+          child: const Text(
+            'Sign in',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
           ),
         )
       ],

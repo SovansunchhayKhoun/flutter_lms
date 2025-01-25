@@ -10,7 +10,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  final bool isLoggedIn = true;
+  final bool isLoggedIn = false;
 
   @override
   Widget build(BuildContext context) {
