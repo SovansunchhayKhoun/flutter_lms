@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lms/constants/app_constant.dart';
+import 'package:flutter_lms/layouts/layout.dart';
 import 'package:flutter_lms/pages/login_screen.dart';
 
 void main() {
@@ -8,17 +10,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  final bool isLoggedIn = false;
+  final bool isLoggedIn = true;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Digi-Lab'),
-        ),
-        body: isLoggedIn ? const Text('Testing') : const LoginScreen(),
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        bottom: false,
+        top: false,
+        child: isLoggedIn ? const RootLayout() : const LoginScreen(),
       ),
+      title: AppConstant.appName,
     );
   }
 }
