@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lms/layouts/layout.dart';
 import 'package:flutter_lms/pages/login_screen.dart';
 
 void main() {
@@ -13,12 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Digi-Lab'),
-        ),
-        body: isLoggedIn ? const Text('Testing') : const LoginScreen(),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+          child: isLoggedIn ? const LoginScreen() : const RootLayout()),
+      title: 'Digi-lab LMS',
     );
   }
 }
