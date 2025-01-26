@@ -1,10 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_lms/constants/app_constant.dart';
 import 'package:flutter_lms/shared/widgets/text_input.dart';
 
+@RoutePage()
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.onResult});
+
+  final void Function(bool success) onResult;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
